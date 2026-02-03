@@ -163,10 +163,31 @@ const ShuffleGrid = () => {
     const timeoutRef = useRef(null);
     const [squares, setSquares] = useState(generateSquares());
 
+    const containerRef = useRef(null);
+
     useEffect(() => {
-        shuffleSquares();
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        shuffleSquares();
+                    } else {
+                        if (timeoutRef.current) {
+                            clearTimeout(timeoutRef.current);
+                            timeoutRef.current = null;
+                        }
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+        }
 
         return () => {
+            observer.disconnect();
             if (timeoutRef.current) {
                 clearTimeout(timeoutRef.current);
             }
@@ -174,13 +195,13 @@ const ShuffleGrid = () => {
     }, []);
 
     const shuffleSquares = () => {
+        if (timeoutRef.current) clearTimeout(timeoutRef.current); // Clear any existing timeout
         setSquares(generateSquares());
-
         timeoutRef.current = setTimeout(shuffleSquares, 3000);
     };
 
     return (
-        <div className="grid grid-cols-4 grid-rows-4 h-[450px] gap-2">
+        <div ref={containerRef} className="grid grid-cols-4 grid-rows-4 h-[450px] gap-2">
             {squares.map((sq) => sq)}
         </div>
     );

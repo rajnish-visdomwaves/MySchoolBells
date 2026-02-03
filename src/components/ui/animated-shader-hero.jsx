@@ -267,12 +267,35 @@ void main(){gl_Position=position;}`;
             rendererRef.current.updateShader(defaultShaderSource);
         }
 
-        loop(0);
+        // Intersection Observer to pause/play loop
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        if (!animationFrameRef.current) {
+                            loop(0);
+                        }
+                    } else {
+                        if (animationFrameRef.current) {
+                            cancelAnimationFrame(animationFrameRef.current);
+                            animationFrameRef.current = null;
+                        }
+                    }
+                });
+            },
+            { threshold: 0 }
+        );
+
+        observer.observe(canvas);
+
+        // Initial start if immediately visible (optional, but observer usually triggers on mount)
+        // loop(0); 
 
         window.addEventListener('resize', resize);
 
         return () => {
             window.removeEventListener('resize', resize);
+            observer.disconnect();
             if (animationFrameRef.current) {
                 cancelAnimationFrame(animationFrameRef.current);
             }
