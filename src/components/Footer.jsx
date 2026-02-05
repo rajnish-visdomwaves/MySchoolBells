@@ -21,22 +21,19 @@ const Footer = () => {
 
                     {/* Links */}
                     <div>
-                        <h4 className="text-white font-semibold mb-6">Platform</h4>
+                        <h4 className="text-white font-semibold mb-6">Explore</h4>
                         <ul className="space-y-3 text-sm">
-                            <li><a href="#" className="hover:text-orange-400 transition-colors">Features</a></li>
-                            <li><a href="#" className="hover:text-orange-400 transition-colors">Security</a></li>
-                            <li><a href="#" className="hover:text-orange-400 transition-colors">Pricing</a></li>
-                            <li><a href="#" className="hover:text-orange-400 transition-colors">Roadmap</a></li>
+                            <li><a href="/" className="hover:text-orange-400 transition-colors">Home</a></li>
+                            <li><a href="/#features" className="hover:text-orange-400 transition-colors">Features</a></li>
+                            <li><a href="/#why-choose-us" className="hover:text-orange-400 transition-colors">Why Choose Us</a></li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="text-white font-semibold mb-6">Company</h4>
                         <ul className="space-y-3 text-sm">
-                            <li><a href="#" className="hover:text-orange-400 transition-colors">About Us</a></li>
-                            <li><a href="#" className="hover:text-orange-400 transition-colors">Careers</a></li>
-                            <li><a href="#" className="hover:text-orange-400 transition-colors">Blog</a></li>
-                            <li><a href="#" className="hover:text-orange-400 transition-colors">Contact</a></li>
+                            <li><a href="/#about" className="hover:text-orange-400 transition-colors">About Us</a></li>
+                            <li><a href="/#contact" className="hover:text-orange-400 transition-colors">Contact</a></li>
                         </ul>
                     </div>
 
