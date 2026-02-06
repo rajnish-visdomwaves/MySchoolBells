@@ -7,6 +7,9 @@ import { HoverEffect } from '@/components/ui/card-hover-effect';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import AboutUs from '@/components/AboutUs';
 import ContactUs from '@/components/ContactUs';
+import SchoolModules from '@/components/SchoolModules';
+
+import { schoolFeatures } from '@/data/schoolBellsData';
 
 const Home = () => {
     const handleStart = () => {
@@ -21,44 +24,8 @@ const Home = () => {
         }
     };
 
-    const schoolFeatures = [
-        {
-            title: "Automated Schedules",
-            description:
-                "Precision timing for classes, breaks, and exams. Set it and forget it with our reliable automation system.",
-            link: "/features/automated-schedules",
-        },
-        {
-            title: "Custom Alerts",
-            description:
-                "Easily configure emergency notifications, regular announcements, and special event chimes.",
-            link: "/features/custom-alerts",
-        },
-        {
-            title: "Music Integration",
-            description:
-                "Replace harsh bells with pleasant chimes or custom music tracks to create a better campus atmosphere.",
-            link: "/features/music-integration",
-        },
-        {
-            title: "Zone Control",
-            description:
-                "Manage bells for different buildings or wings separately. ideal for large campuses with multiple blocks.",
-            link: "/features/zone-control",
-        },
-        {
-            title: "Web Dashboard",
-            description:
-                "Access and manage your school's bell schedule from anywhere, on any device, with our intuitive cloud interface.",
-            link: "/features/web-dashboard",
-        },
-        {
-            title: "Smart Integration",
-            description:
-                "Seamlessly connects with your existing PA systems and speakers. No need for expensive hardware overhauls.",
-            link: "/features/smart-integration",
-        },
-    ];
+    // Imported from @/data/schoolBellsData
+
 
     return (
         <>
@@ -88,12 +55,13 @@ const Home = () => {
 
                     <div id="features" className="max-w-7xl mx-auto px-8 py-20">
                         <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
-                        FEATURES
-                    </h2>
+                            FEATURES
+                        </h2>
                         <HoverEffect items={schoolFeatures} />
                     </div>
 
                     <AboutUs />
+                    <SchoolModules />
                     <ContactUs />
                     <WhyChooseUs />
                 </main>

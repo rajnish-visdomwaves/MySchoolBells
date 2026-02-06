@@ -7,6 +7,7 @@ import MusicIntegration from '@/pages/features/MusicIntegration'
 import ZoneControl from '@/pages/features/ZoneControl'
 import WebDashboard from '@/pages/features/WebDashboard'
 import SmartIntegration from '@/pages/features/SmartIntegration'
+import FeatureDetail from '@/pages/features/FeatureDetail'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 
@@ -53,6 +54,7 @@ function App() {
       <Route path="/features/zone-control" element={<ZoneControl />} />
       <Route path="/features/web-dashboard" element={<WebDashboard />} />
       <Route path="/features/smart-integration" element={<SmartIntegration />} />
+      <Route path="/features/:id" element={<FeatureDetail />} />
     </Routes>
   )
 }
